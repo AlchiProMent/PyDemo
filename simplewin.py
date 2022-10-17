@@ -5,5 +5,7 @@ import tkinter as gui
 win = gui.Tk()
 # задать размер окна
 win.geometry('800x600')
+# новый заголовок окна
+win.title('Грандиозная программа в стиле GUI')
 # вывести окно на экран
 win.mainloop()
