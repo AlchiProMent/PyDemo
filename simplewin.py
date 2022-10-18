@@ -1,6 +1,18 @@
 # создание программы в стиле GUI
 import tkinter as gui
+from tkinter import messagebox
 from const import *
+
+def new_click():
+    # обработчик щелчка по пункту НОВЫЙ
+    messagebox.showinfo('Пункт меню', 'Новый')
+
+def open_click():
+    # обработчик щелчка по пункту ОТКРЫТЬ
+    messagebox.showinfo('Пункт меню', 'Открыть')
+def save_click():
+    # обработчик щелчка по пункту СОХРАНИТЬ
+    messagebox.showinfo('Пункт меню', 'Сохранить')
 
 def exit_click():
     # обработчик щелчка по пункту ВЫЙТИ ИЗ ПРОГРАММЫ
@@ -18,9 +30,9 @@ main_menu = gui.Menu (win)
 # создать первую группу
 file_item = gui.Menu (main_menu)
 # пункты первой группы
-file_item.add_command(label=FILE_NEW)
-file_item.add_command(label=FILE_OPEN)
-file_item.add_command(label=FILE_SAVE)
+file_item.add_command(label=FILE_NEW, command=new_click)
+file_item.add_command(label=FILE_OPEN, command=open_click)
+file_item.add_command(label=FILE_SAVE, command=save_click)
 # разделитель
 file_item.add_separator()
 file_item.add_command(label=FILE_EXIT, command=exit_click)
