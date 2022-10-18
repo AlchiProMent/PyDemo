@@ -7,3 +7,6 @@ FILE_NEW = 'Новый'
 FILE_OPEN = 'Открыть...'
 FILE_SAVE = 'Сохранить как...'
 FILE_EXIT = 'Выйти из программы'
+
+# текстовый редактор
+FONT_SIZE = 'Courier 16'

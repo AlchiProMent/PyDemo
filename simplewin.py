@@ -2,17 +2,23 @@
 import tkinter as gui
 from tkinter import messagebox
 from tkinter import filedialog
+from tkinter import scrolledtext
 from const import *
 
 def new_click():
     # обработчик щелчка по пункту НОВЫЙ
-    messagebox.showinfo('Пункт меню', 'Новый')
+    # очистить редактор
+    editor.delete(1.0,gui.END)
 
 def open_click():
     # обработчик щелчка по пункту ОТКРЫТЬ
     file = filedialog.askopenfile(filetypes=( ('Python файл', '*.py'),('Текстовый файл','*.txt'),('Все файлы','*.*') ))
     # в заголовке окна поместить имя файла
     win.title(file.name)
+    # очистить редактор
+    new_click()
+    # загрузить текст из файла в редактор
+    editor.insert(gui.END, file.read().encode('cp1251').decode())
 
 def save_click():
     # обработчик щелчка по пункту СОХРАНИТЬ
@@ -45,6 +51,10 @@ main_menu.add_cascade(label=MAIN_ITEM_FILE, menu=file_item)
 
 # подключить систему меню к окну программы
 win.config(menu=main_menu)
+
+# разместить в окне редактор текста
+editor = scrolledtext.ScrolledText(win, font=FONT_SIZE, wrap=gui.WORD)
+editor.pack(expand=True, fill=gui.BOTH)
 
 # вывести окно на экран
 win.mainloop()
