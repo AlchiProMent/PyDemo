@@ -1,6 +1,7 @@
 # создание программы в стиле GUI
 import tkinter as gui
 from tkinter import messagebox
+from tkinter import filedialog
 from const import *
 
 def new_click():
@@ -9,10 +10,13 @@ def new_click():
 
 def open_click():
     # обработчик щелчка по пункту ОТКРЫТЬ
-    messagebox.showinfo('Пункт меню', 'Открыть')
+    file = filedialog.askopenfile(filetypes=( ('Python файл', '*.py'),('Текстовый файл','*.txt'),('Все файлы','*.*') ))
+    # в заголовке окна поместить имя файла
+    win.title(file.name)
+
 def save_click():
     # обработчик щелчка по пункту СОХРАНИТЬ
-    messagebox.showinfo('Пункт меню', 'Сохранить')
+    filedialog.asksaveasfilename()
 
 def exit_click():
     # обработчик щелчка по пункту ВЫЙТИ ИЗ ПРОГРАММЫ
