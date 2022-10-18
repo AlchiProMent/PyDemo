@@ -2,6 +2,10 @@
 import tkinter as gui
 from const import *
 
+def exit_click():
+    # обработчик щелчка по пункту ВЫЙТИ ИЗ ПРОГРАММЫ
+    win.quit()
+
 # создать главное окно программы
 win = gui.Tk()
 # задать размер окна
@@ -19,7 +23,7 @@ file_item.add_command(label=FILE_OPEN)
 file_item.add_command(label=FILE_SAVE)
 # разделитель
 file_item.add_separator()
-file_item.add_command(label=FILE_EXIT)
+file_item.add_command(label=FILE_EXIT, command=exit_click)
 # подключить первую группу к главному меню
 main_menu.add_cascade(label=MAIN_ITEM_FILE, menu=file_item)
 
