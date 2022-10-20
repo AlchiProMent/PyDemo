@@ -23,7 +23,9 @@ def open_click():
 
 def save_click():
     # обработчик щелчка по пункту СОХРАНИТЬ
-    filedialog.asksaveasfilename(filetypes=( ('Python файл', '*.py'),('Текстовый файл','*.txt'),('Все файлы','*.*') ))
+    file_name = filedialog.asksaveasfilename(filetypes=( ('Текстовый файл','*.txt'),('Все файлы','*.*') ))
+    # вывести информационную панель с сообщением о сохранении файла (файл, естественно, не сохраняется)
+    gui.messagebox.showinfo(SAVE_FILE_TITLE,file_name)
 
 def exit_click():
     # обработчик щелчка по пункту ВЫЙТИ ИЗ ПРОГРАММЫ
@@ -38,8 +40,8 @@ win.title(MAIN_TITLE)
 
 # создать систему главного меню
 main_menu = gui.Menu (win)
-# создать первую группу
-file_item = gui.Menu (main_menu)
+# создать первую группу (пунктирную линию отключить)
+file_item = gui.Menu (main_menu, tearoff=False)
 # пункты первой группы
 file_item.add_command(label=FILE_NEW, command=new_click)
 file_item.add_command(label=FILE_OPEN, command=open_click)
