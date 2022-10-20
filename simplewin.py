@@ -23,7 +23,7 @@ def open_click():
 
 def save_click():
     # обработчик щелчка по пункту СОХРАНИТЬ
-    filedialog.asksaveasfilename()
+    filedialog.asksaveasfilename(filetypes=( ('Python файл', '*.py'),('Текстовый файл','*.txt'),('Все файлы','*.*') ))
 
 def exit_click():
     # обработчик щелчка по пункту ВЫЙТИ ИЗ ПРОГРАММЫ
