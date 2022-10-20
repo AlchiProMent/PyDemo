@@ -4,6 +4,7 @@ from tkinter import messagebox
 from tkinter import filedialog
 from tkinter import scrolledtext
 from const import *
+import os
 
 def new_click():
     # обработчик щелчка по пункту НОВЫЙ
@@ -14,7 +15,7 @@ def open_click():
     # обработчик щелчка по пункту ОТКРЫТЬ
     file = filedialog.askopenfile(filetypes=( ('Python файл', '*.py'),('Текстовый файл','*.txt'),('Все файлы','*.*') ))
     # в заголовке окна поместить имя файла
-    win.title(file.name)
+    win.title( os.path.basename(file.name) )
     # очистить редактор
     new_click()
     # загрузить текст из файла в редактор
